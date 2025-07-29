@@ -24,11 +24,11 @@
             </tr>
             <?php foreach ($clientes as $cliente): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($cliente['id_cliente']); ?></td>
-                    <td><?php echo htmlspecialchars($cliente['nome']); ?></td>
-                    <td><?php echo htmlspecialchars($cliente['endereco']); ?></td>
-                    <td><?php echo htmlspecialchars($cliente['telefone']); ?></td>
-                    <td><?php echo htmlspecialchars($cliente['email']); ?></td>
+                    <td><?= htmlspecialchars($cliente['id_cliente']); ?></td>
+                    <td><?= htmlspecialchars($cliente['nome']); ?></td>
+                    <td><?= htmlspecialchars($cliente['endereco']); ?></td>
+                    <td><?= htmlspecialchars($cliente['telefone']); ?></td>
+                    <td><?= htmlspecialchars($cliente['email']); ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
