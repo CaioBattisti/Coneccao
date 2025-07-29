@@ -1,5 +1,5 @@
 <?php
-    require_once 'conexao.php'; 
+    require_once '../conexao.php'; 
 
     $conexao = conectarBanco();
     $stmt = $conexao->prepare("SELECT * FROM cliente");
