@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <h2>Lista de Clientes</h2>
+    <h2>Lista de Clientes:</h2>
         <table border="1">
             <tr>
                 <th>ID</th>
