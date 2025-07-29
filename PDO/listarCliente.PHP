@@ -5,7 +5,7 @@
     $stmt = $conexao->prepare("SELECT * FROM cliente");
     $stmt->execute();
     $clientes = $stmt->fetchAll();
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
