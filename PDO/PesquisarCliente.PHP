@@ -5,7 +5,7 @@ $conexao = conectarbanco();
 $busca = $_GET['busca'] ?? '';
 if (!$busca) {
 ?>
-    <form action "PesquisarCliente.PHP" method="GET">
+    <form action="PesquisarCliente.PHP" method="GET">
         <label for="busca">Digite o ID ou Nome</label>
         <input type="text" id="busca" name="busca" required>
         <button type="submit">Pesquisar</button>
