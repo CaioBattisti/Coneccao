@@ -25,7 +25,7 @@ if (is_numeric($busca)) {
 
 $stmt->execute();
 $clientes = $stmt->fetchAll();
-if (!$clientes){
+if (!$clientes) {
     die("Erro: Nenhum Cliente Encontrado.");
 }
 ?>
@@ -38,16 +38,16 @@ if (!$clientes){
         <th>Email</th>
         <th>Ação</th>
     </tr>
-<?php foreach ($clientes as $cliente): ?>
-    <tr>
-        <td><?php echo htmlspecialchars($cliente['id_cliente']); ?></td>
-        <td><?php echo htmlspecialchars($cliente['nome']); ?></td>
-        <td><?php echo htmlspecialchars($cliente['endereco']); ?></td>
-        <td><?php echo htmlspecialchars($cliente['telefone']); ?></td>
-        <td><?php echo htmlspecialchars($cliente['email']); ?></td>
-        <td>
-            <a href="AtualizarCliente.PHP?id=<?=$cliente['id_cliente']?>">Editar</a>
-        </td>
-    </tr>
-<?php endforeach; ?>
+    <?php foreach ($clientes as $cliente): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($cliente['id_cliente']); ?></td>
+            <td><?php echo htmlspecialchars($cliente['nome']); ?></td>
+            <td><?php echo htmlspecialchars($cliente['endereco']); ?></td>
+            <td><?php echo htmlspecialchars($cliente['telefone']); ?></td>
+            <td><?php echo htmlspecialchars($cliente['email']); ?></td>
+            <td>
+                <a href="AtualizarCliente.PHP?id=<?= $cliente['id_cliente'] ?>">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
 </table>
