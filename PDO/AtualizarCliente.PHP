@@ -3,18 +3,19 @@
 
     $conexao = conectarBanco();
 
-    // Obtendo O ID via GET
+    // Obtendo o ID via GET
     $idCliente = $_GET['id_cliente'] ?? null;
-    $cliente= null;
+    $cliente = null;
     $msgErro = "";
+
     // Função para buscar cliente por ID
     function buscarClientePorld($idCliente, $conexao){
-        $stmt = $conexao->prepare("SELECT * FROM id_cliente, nome, endereco, telefone, 
-                                   email FROM cliente WHERE id_cliente = :id");
-        $stmt->bindParam(":id_cliente", $idCliente, PDO::PARAM_INT);
+        $stmt = $conexao->prepare("SELECT * FROM cliente WHERE id_cliente = :id");
+        $stmt->bindParam(":id", $idCliente, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
     // Se um ID foi enviado, busca o cliente no banco
     if ($idCliente && is_numeric($idCliente)){
         $cliente = buscarClientePorld($idCliente, $conexao);
@@ -33,7 +34,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         function habilitarEdicao(campo){
-            document.getElementByid(campo).removeAttribute("readonly");
+            document.getElementById(campo).removeAttribute("readonly");
         }
     </script>
 </head>
@@ -43,34 +44,34 @@
 <!-- Exibe mensagem de erro, exibe a mensagem e o campo de busca -->
 <?php if ($msgErro): ?>
     <p style="color:red;"><?= htmlspecialchars($msgErro) ?></p>
-    
-    <form action="AtualizarCliente.PHP" method="GET">
-        <label for="id">ID do Cliente:</label>
-        <input type="number" id="id" name="id" required>
-        <button type="submit">Buscar</button>
-    </form>
-<?php else: ?>
-    <!-- Se um cliente encontrado, exibe o formulário preenchido -->
-    <form action="ProcessarAtualizacao.PHP" method="POST">
+<?php endif; ?>
+
+<form action="AtualizarCliente.PHP" method="GET">
+    <label for="id">ID do Cliente:</label>
+    <input type="text" name="id_cliente" id="id" value="<?= htmlspecialchars($idCliente) ?>">
+    <button type="submit">Buscar</button>
+</form>
+
+<?php if ($cliente): ?>
+    <form action="SalvarCliente.PHP" method="POST">
         <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($cliente['id_cliente']) ?>">
-
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($cliente['nome']) ?>" readonly
-        onclick="habilitarEdicao('nome')">
-    
+        <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($cliente['nome']) ?>" readonly>
+        <button type="button" onclick="habilitarEdicao('nome')">Editar</button>
+        <br>
         <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>" readonly
-        onclick="habilitarEdicao('endereco')">
-
+        <input type="text" name="endereco" id="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>" readonly>
+        <button type="button" onclick="habilitarEdicao('endereco')">Editar</button>
+        <br>
         <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>" readonly
-        onclick="habilitarEdicao('telefone')">
-
-        <label for="email">E-mail:</label>
-        <input type="text" id="email" name="email" value="<?= htmlspecialchars($cliente['email']) ?>" readonly
-        onclick="habilitarEdicao('email')">
-
-        <button type="submit">Atualizar</button>
+        <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>" readonly>
+        <button type="button" onclick="habilitarEdicao('telefone')">Editar</button>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<?= htmlspecialchars($cliente['email']) ?>" readonly>
+        <button type="button" onclick="habilitarEdicao('email')">Editar</button>
+        <br>
+        <button type="submit">Salvar Alterações</button>
     </form>
 <?php endif; ?>
 </body>
