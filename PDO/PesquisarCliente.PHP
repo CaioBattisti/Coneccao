@@ -25,3 +25,29 @@ if (is_numeric($busca)) {
 
 $stmt->execute();
 $clientes = $stmt->fetchAll();
+if (!$clientes){
+    die("Erro: Nenhum Cliente Encontrado.");
+}
+?>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Ação</th>
+    </tr>
+<?php foreach ($clientes as $cliente): ?>
+    <tr>
+        <td><?php echo htmlspecialchars($cliente['id_cliente']); ?></td>
+        <td><?php echo htmlspecialchars($cliente['nome']); ?></td>
+        <td><?php echo htmlspecialchars($cliente['endereco']); ?></td>
+        <td><?php echo htmlspecialchars($cliente['telefone']); ?></td>
+        <td><?php echo htmlspecialchars($cliente['email']); ?></td>
+        <td>
+            <a href="AtualizarCliente.PHP?id=<?=$cliente['id_cliente']?>">Editar</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
