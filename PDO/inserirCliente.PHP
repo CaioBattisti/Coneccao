@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>cadastro de cliente</h2>
+    <h2>Cadastro de Clientes</h2>
     <form action="ProcessarInsercao.PHP" method="POST">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
