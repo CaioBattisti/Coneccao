@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         function habilitarEdicao(campo){
-ducument.getElementByid(campo).removeAttribute("readonly");
+            document.getElementByid(campo).removeAttribute("readonly");
         }
     </script>
 </head>
