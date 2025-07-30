@@ -38,7 +38,7 @@
     </script>
 </head>
 <body>
-<h2>Atualizar Cliente</h2>
+<h2>Atualizar Cliente:</h2>
 
 <!-- Exibe mensagem de erro, exibe a mensagem e o campo de busca -->
 <?php if ($msgErro): ?>
