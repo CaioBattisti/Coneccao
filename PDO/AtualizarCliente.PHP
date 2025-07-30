@@ -59,5 +59,6 @@ ducument.getElementByid(campo).removeAttribute("readonly");
             <input type="text" id="nome" name="nome" value="<?=
             htmlspecialchars($cliente['nome']) ?>" readonly
             onclick="habilitarEdicao('nome')">
+        
 </body>
 </html>
