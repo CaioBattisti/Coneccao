@@ -17,9 +17,9 @@
     if(is_numeric($busca)){
         $stmt = $conexao->prepare("SELECT id_cliente, nome, endereco, telefone, email FROM cliente WHERE id_cliente = :id");
         $stmt->bindParam(":id",$busca,PDO::PARAM_INT);       
-    } else{
+    }else{
         $stmt = $conexao->prepare("SELECT id_cliente, nome, endereco, telefone, email FROM cliente WHERE nome LIKE :nome");
-        $buscaNome = "%$busca%";
+        $buscaNome = "%$busca";
         $stmt->bindParam(":nome",$buscaNome,PDO::PARAM_STR);
     }
 
