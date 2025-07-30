@@ -9,5 +9,16 @@
         if(!$id){
             die("Erro: ID Inválido.");
         }
+        $sql = "DELETE FROM cliente WHERE id_cliente = :id";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+
+        try {
+            $stmt->execute();
+            echo "Cliente Excluído com Sucesso!";
+        } catch (PDOException $e) {
+            error_log("Erro ao Excluir o Cliente:" . $e->getMessage());
+            echo "Erro ao Excluir Registro.";
+        }
     }
 ?>
