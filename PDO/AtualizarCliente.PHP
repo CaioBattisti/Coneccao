@@ -57,19 +57,19 @@
         <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($cliente['id_cliente']) ?>">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($cliente['nome']) ?>" readonly>
-        <button type="button" onclick="habilitarEdicao('nome')">Editar</button>
+        <button type="button" onclick="habilitarEdicao('nome')">
         <br>
         <label for="endereco">Endereço:</label>
         <input type="text" name="endereco" id="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>" readonly>
-        <button type="button" onclick="habilitarEdicao('endereco')">Editar</button>
+        <button type="button" onclick="habilitarEdicao('endereco')">
         <br>
         <label for="telefone">Telefone:</label>
         <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>" readonly>
-        <button type="button" onclick="habilitarEdicao('telefone')">Editar</button>
+        <button type="button" onclick="habilitarEdicao('telefone')">
         <br>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" value="<?= htmlspecialchars($cliente['email']) ?>" readonly>
-        <button type="button" onclick="habilitarEdicao('email')">Editar</button>
+        <button type="button" onclick="habilitarEdicao('email')">
         <br>
         <button type="submit">Salvar Alterações</button>
     </form>
