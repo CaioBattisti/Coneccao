@@ -44,7 +44,7 @@ ducument.getElementByid(campo).removeAttribute("readonly");
     <php if ($msgErro): ?>
         <p style="color:red;"><?= htmlspecialchars($msgErro) ?></p>
         
-        <form action="AtualizarCliente.PHP" method="GET">
+        <form action="processarAtualizarCliente.PHP" method="GET">
             <label for="id">ID do Cliente:</label>
             <input type="number" id="id" name="id" required>
             <button type="submit">Buscar</button>
