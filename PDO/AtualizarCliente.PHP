@@ -60,5 +60,23 @@ ducument.getElementByid(campo).removeAttribute("readonly");
             htmlspecialchars($cliente['nome']) ?>" readonly
             onclick="habilitarEdicao('nome')">
         
+            <label for="endereco">Endereco:</label>
+            <input type="text" id="endereco" name="endereco" value="<?=
+            htmlspecialchars($cliente['endereco']) ?>" readonly
+            onclick="habilitarEdicao('endereco')">
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" value="<?=
+            htmlspecialchars($cliente['telefone']) ?>" readonly
+            onclick="habilitarEdicao('telefone')">
+
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" value="<?=
+            htmlspecialchars($cliente['email']) ?>" readonly
+            onclick="habilitarEdicao('email')">
+
+            <button type="submit">Atualizar</button>
+        </form>
+    <?php endif; ?>
 </body>
 </html>
