@@ -20,12 +20,3 @@
         }
     }
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
