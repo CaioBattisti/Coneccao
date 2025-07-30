@@ -44,11 +44,20 @@ ducument.getElementByid(campo).removeAttribute("readonly");
     <php if ($msgErro): ?>
         <p style="color:red;"><?= htmlspecialchars($msgErro) ?></p>
         
-        <form action="processarAtualizarCliente.PHP" method="GET">
+        <form action="AtualizarCliente.PHP" method="GET">
             <label for="id">ID do Cliente:</label>
             <input type="number" id="id" name="id" required>
             <button type="submit">Buscar</button>
         </form>
     <?php else: ?>
+    <!-- Se um cliente enontrado, exibe o formulario preenchido -->
+        <form action="ProcessarAtualizacao.PHP" method="POST">
+            <input type="hidden" name="id_cliente" value="<?=
+            htmlspecialchars($cliente['id_cliente']) ?>">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="<?=
+            htmlspecialchars($cliente['nome']) ?>" readonly
+            onclick="habilitarEdicao('nome')">
 </body>
 </html>
