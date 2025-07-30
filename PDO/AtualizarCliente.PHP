@@ -9,7 +9,7 @@
     $msgErro = "";
 
     // Função para buscar cliente por ID
-    function buscarClientePorld($idCliente, $conexao){
+    function buscarClientePorId($idCliente, $conexao){
         $stmt = $conexao->prepare("SELECT * FROM cliente WHERE id_cliente = :id");
         $stmt->bindParam(":id", $idCliente, PDO::PARAM_INT);
         $stmt->execute();
@@ -18,7 +18,7 @@
 
     // Se um ID foi enviado, busca o cliente no banco
     if ($idCliente && is_numeric($idCliente)){
-        $cliente = buscarClientePorld($idCliente, $conexao);
+        $cliente = buscarClientePorId($idCliente, $conexao);
         if (!$cliente){
             $msgErro = "Erro: Cliente não encontrado.";
         }
@@ -56,16 +56,16 @@
     <form action="ProcessarAtualizacao.PHP" method="POST">
         <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($cliente['id_cliente']) ?>">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($cliente['nome']) ?>" readonly>
+        <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($cliente['nome']) ?>">
         <br/>
         <label for="endereco">Endereço:</label>
-        <input type="text" name="endereco" id="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>" readonly>
+        <input type="text" name="endereco" id="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>">
         <br/>
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>" readonly>
+        <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>">
         <br/>
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" value="<?= htmlspecialchars($cliente['email']) ?>" readonly>  
+        <input type="email" name="email" id="email" value="<?= htmlspecialchars($cliente['email']) ?>">  
         <br/>
         <button type="submit">Salvar Alterações</button>
     </form>
