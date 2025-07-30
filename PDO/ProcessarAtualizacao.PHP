@@ -13,6 +13,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(!$id || !$email){
         die("Erro: ID inválido ou E-mail incorreto.");
     }
+
+    $sql = "UPDATE clientes SET nome = :nome, endereco = :endereco, telefone = :telefone, email = :email WHERE id_cliente = :id";
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':endereco', $endereco);
+    $stmt->bindParam(':telefone', $telefone);
+    $stmt->bindParam(':email', $email);
+
+    try{
+        $stmt->execute();
+        echo "Cliente Atualizado com Sucesso!";
     
+    } catch(PDOException $e){
+        error_log("Erro ao Atualizar o Cliente:".$e->getMessage());
+        echo "Erro ao Atualizar Registro.";
+    }
 }
 ?>
