@@ -12,7 +12,7 @@ if ($conexao->connect_error){
     die("Erro de conexão:".$conexao->connect_error);
 }
 // Captura os dados do formulário(Nome de usuário)
-$usuario = $_POST['nome'];
+$nome = $_POST['nome'];
 
 // Execute a consulta SEM proteção contra SQL Injection
 $sql = "SELECT * FROM cliente_teste WHERE nome = '$nome'";
