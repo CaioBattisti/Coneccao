@@ -19,3 +19,15 @@ $stmt = $conexao->prepare("SELECT * FROM cliente_teste WHERE nome = ?");
 $stmt->bind_param("s", $nome);
 $stmt->execute();
 $result = $stmt->get_result();
+
+// Se houver resultados, o login é considerado bem-sucedido
+if ($result->num_rows > 0){
+    header ("Location: Area_Restrita.PHP");
+// Garante que o código para aqui para evitar execução indevida
+    exit();
+} else {
+    echo "Nome não Encontrado.";
+}
+$stmt->close();
+$conexao->close();
+?>
