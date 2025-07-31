@@ -1,5 +1,5 @@
 <?php
-require_once '../conexao2.php';
+require_once 'conexao2.php';
 $conexao = conectadb();
 
 $nome = "Caio Luiz Battisti";
