@@ -3,8 +3,8 @@ require_once '../conexao2.php';
 $conexao = conectadb();
 
 $nome = "Julia Silva";
-$endereco = "Rua Olinda,144";
-$telefone = "(47) 4364-4535";
+$endereco = "Rua Kalamango,144";
+$telefone = "(41) 5555-5555";
 $email = "JuliaSilva@gmail.com";
 
 $id_cliente = 1;
