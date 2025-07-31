@@ -25,7 +25,7 @@ $result = mysqli_query($conn, $sql);
 // Verifica se há resultados na consulta
 if (mysqli_num_rows($result) > 0){
 // Intera sobre os resultados e exibe os dados
-    while ($linha = mysqli_feth_assoc($result)){
+    while ($linha = mysqli_feth_assoc($result)) {
         echo "ID: ".$linha["id_cliente"]."- Nome:".$linha["nome"]."- Email:".$linha["email"]."<br/>"; }
 } else {
     echo "Nenhum Resultado Encontrado.";}
