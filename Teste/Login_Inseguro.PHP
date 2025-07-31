@@ -20,7 +20,7 @@ $result=$conexao->query($sql);
 
 // Se houver resultados, o login é considerado bem-sucedido
 if ($result->num_rows > 0){
-    header ("Location: area_restrita.PHP");
+    header ("Location: Area_Restrita.PHP");
 // Garante que o código para aqui para evitar execução indevida
     exit();
 } else {
