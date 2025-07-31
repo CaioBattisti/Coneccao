@@ -1,14 +1,13 @@
 <?php
 require '../conexao.php';
 
-$conexao = conectarbanco();
+$conexao = conectarBanco();
 
-//consulta todos os clientes do banco
-//Ordena por nome para melhor visualização
-$sql="SELECT id_cliente,nome,endereco,telefone,email FROM cliente ORDER BY nome ASC";
-$stmt=$conexao->prepare($sql);
+// Consulta todos os clientes do banco
+$sql = "SELECT id_cliente, nome, endereco, telefone, email FROM cliente ORDER BY nome ASC";
+$stmt = $conexao->prepare($sql);
 $stmt->execute();
-$clientes = $stmt->fetchAll();   
+$clientes = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,7 +18,8 @@ $clientes = $stmt->fetchAll();
 </head>
 <body>
     <h2>Todos os Clientes Cadastrados:</h2>
-    <php if (!$clientes): ?>
+
+    <?php if (!$clientes): ?>
         <p style="color:red;">Nenhum cliente encontrado.</p>
     <?php else: ?>
         <table border="1">
@@ -31,19 +31,19 @@ $clientes = $stmt->fetchAll();
                 <th>Email</th>
                 <th>Ação</th>
             </tr>
-    <?php foreach ($clientes as $cliente): ?>
-        <tr>
-            <td><?= htmlspecialchars($cliente['id_cliente']) ?></td>
-            <td><?= htmlspecialchars($cliente['nome']) ?></td>
-            <td><?= htmlspecialchars($cliente['endereco']) ?></td>
-            <td><?= htmlspecialchars($cliente['telefone']) ?></td>
-            <td><?= htmlspecialchars($cliente['email']) ?></td>
-            <td>
-                <a href="AtualizarCliente.PHP?id=<?= $cliente['id_cliente'] ?>">Editar</a>
-            </td> 
-        </tr>
-    <?php endforeach; ?>
+            <?php foreach ($clientes as $cliente): ?>
+            <tr>
+                <td><?= htmlspecialchars($cliente['id_cliente']) ?></td>
+                <td><?= htmlspecialchars($cliente['nome']) ?></td>
+                <td><?= htmlspecialchars($cliente['endereco']) ?></td>
+                <td><?= htmlspecialchars($cliente['telefone']) ?></td>
+                <td><?= htmlspecialchars($cliente['email']) ?></td>
+                <td>
+                    <a href="AtualizarCliente.php?id=<?= $cliente['id_cliente'] ?>">Editar</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
         </table>
-<?php endif; ?>
+    <?php endif; ?>
 </body>
 </html>
