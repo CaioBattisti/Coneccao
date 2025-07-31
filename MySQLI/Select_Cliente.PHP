@@ -1,5 +1,5 @@
 <?php
-require_once 'conexao2.php';
+require_once '../conexao2.php';
 
 $conexao = conectadb();
 $sql = "SELECT id_cliente, nome, email FROM cliente";
