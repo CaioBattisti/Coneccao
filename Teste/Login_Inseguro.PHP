@@ -3,7 +3,7 @@
 $servidor ="localhost";
 $usuario = "root";
 $senha = "";
-$banco = "Enpresa_teste";
+$banco = "Empresa_teste";
 // Conexão usando MySQLi sem proteção contra SQL Injection
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
 
