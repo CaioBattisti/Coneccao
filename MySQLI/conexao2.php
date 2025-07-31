@@ -8,7 +8,7 @@ function conectadb(){
     $senha = "";
     $banco = "empresa";
 try{
-    $con = new mysqli($endereco, $usuario,$senha,$banco)
+    $con = new mysqli($endereco, $usuario,$senha,$banco);
 
 // Definição de conjunto de caracteres para evitar problemas de acentuação
     $con->set_charset("utf8mb4");
