@@ -9,7 +9,7 @@ $email = "JuliaSilva@gmail.com";
 
 $id_cliente = 1;
 
-$stmt = $conexao->prepare("UPDATE clientes SET nome=?, endereco=?, telefone=?, email=? WHERE id_cliente=?");
+$stmt = $conexao->prepare("UPDATE cliente SET nome=?, endereco=?, telefone=?, email=? WHERE id_cliente=?");
 $stmt->bind_param("ssssi", $nome, $endereco, $telefone, $email, $id_cliente);
 
 if ($stmt->execute()){
