@@ -42,37 +42,39 @@ if ($idCliente && is_numeric($idCliente)) {
 </head>
 
 <body>
-    <h2>Atualizar Cliente:</h2>
+    <?php include 'menu.php'; ?>
+    <div class="container">
+        <h2>Atualizar Cliente:</h2>
 
-    <!-- Exibe mensagem de erro, exibe a mensagem e o campo de busca -->
-    <?php if ($msgErro): ?>
-        <p style="color:red;"><?= htmlspecialchars($msgErro) ?></p>
-    <?php endif; ?>
+        <?php if ($msgErro): ?>
+            <p class="error-msg"><?= htmlspecialchars($msgErro) ?></p>
+        <?php endif; ?>
 
-    <form action="AtualizarCliente.PHP" method="GET">
-        <label for="id">ID do Cliente:</label>
-        <input type="text" name="id_cliente" id="id" value="<?= htmlspecialchars($idCliente) ?>">
-        <button type="submit">Buscar</button>
-    </form>
-
-    <?php if ($cliente): ?>
-        <form action="ProcessarAtualizacao.PHP" method="POST">
-            <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($cliente['id_cliente']) ?>">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($cliente['nome']) ?>">
-            <br />
-            <label for="endereco">Endereço:</label>
-            <input type="text" name="endereco" id="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>">
-            <br />
-            <label for="telefone">Telefone:</label>
-            <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>">
-            <br />
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value="<?= htmlspecialchars($cliente['email']) ?>">
-            <br />
-            <button type="submit">Salvar Alterações</button>
+        <form action="AtualizarCliente.PHP" method="GET">
+            <label for="id">ID do Cliente:</label>
+            <input type="text" name="id_cliente" id="id" value="<?= htmlspecialchars($idCliente) ?>">
+            <button type="submit">Buscar</button>
         </form>
-    <?php endif; ?>
+
+        <?php if ($cliente): ?>
+            <form action="ProcessarAtualizacao.PHP" method="POST">
+                <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($cliente['id_cliente']) ?>">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($cliente['nome']) ?>">
+                <br />
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" value="<?= htmlspecialchars($cliente['endereco']) ?>">
+                <br />
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($cliente['telefone']) ?>">
+                <br />
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="<?= htmlspecialchars($cliente['email']) ?>">
+                <br />
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        <?php endif; ?>
+    </div>
 </body>
 
 </html>
