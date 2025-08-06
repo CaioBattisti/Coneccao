@@ -30,7 +30,7 @@ if(!empty($imagem) && $tamanho > 0) {
         header("Location: index.PHP");
         exit();
     }else{
-        die("Erro ao inserir no banco: " . mysqli_error($conexao));
+        die("Erro ao inserir no banco: ".mysqli_error($conexao));
     }
 }else{
     echo "Erro: Nenhuma Imagem Foi enviada";
