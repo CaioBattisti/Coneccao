@@ -32,6 +32,7 @@ if(!$resultado){
         <tr>
             <td align="center">Código</td>
             <td align="center">Evento</td>
+            <td align="center">Descrição</td>
             <td align="center">Nome da Imagem</td>
             <td align="center">Tamanho</td>
             <td align="center">Visualizar</td>
