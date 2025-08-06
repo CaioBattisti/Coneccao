@@ -34,8 +34,8 @@ if(!$resultado){
             <td aling="center">Evento</td>
             <td aling="center">Nome da Imagem</td>
             <td aling="center">Tamanho</td>
-            <td aling="center">Visualizar Imagem</td>
-            <td aling="center">Excluir Imagem</td>
+            <td aling="center">Visualizar</td>
+            <td aling="center">Excluir</td>
         </tr>
 <?php
     while($arquivos = mysqli_fetch_array($resultado)) { ?>
