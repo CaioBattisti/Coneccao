@@ -30,25 +30,25 @@ if(!$resultado){
     <br>
     <table border="1">
         <tr>
-            <td aling="center">Código</td>
-            <td aling="center">Evento</td>
-            <td aling="center">Nome da Imagem</td>
-            <td aling="center">Tamanho</td>
-            <td aling="center">Visualizar</td>
-            <td aling="center">Excluir</td>
+            <td align="center">Código</td>
+            <td align="center">Evento</td>
+            <td align="center">Nome da Imagem</td>
+            <td align="center">Tamanho</td>
+            <td align="center">Visualizar</td>
+            <td align="center">Excluir</td>
         </tr>
 <?php
     while($arquivos = mysqli_fetch_array($resultado)) { ?>
        <tr>
-            <td aling="center"><?php echo $arquivos['codigo'];?></td>
-            <td aling="center"><?php echo $arquivos['evento'];?></td>
-            <td aling="center"><?php echo $arquivos['descricao'];?></td>
-            <td aling="center"><?php echo $arquivos['nome_imagem'];?></td>
-            <td aling="center"><?php echo $arquivos['tamanho_imagem'];?></td>
-            <td aling="center">
+            <td align="center"><?php echo $arquivos['codigo'];?></td>
+            <td align="center"><?php echo $arquivos['evento'];?></td>
+            <td align="center"><?php echo $arquivos['descricao'];?></td>
+            <td align="center"><?php echo $arquivos['nome_imagem'];?></td>
+            <td align="center"><?php echo $arquivos['tamanho_imagem'];?></td>
+            <td align="center">
                 <a href="ver_imagens.PHP?id=<?php echo $arquivos['codigo'];?>">Visualizar</a>
             </td>
-            <td aling="center">
+            <td align="center">
                 <a href="excluir_imagem.PHP?id=<?php echo $arquivos['codigo'];?>">Excluir</a>
             </td>
         </tr>
