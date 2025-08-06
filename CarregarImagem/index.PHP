@@ -20,12 +20,12 @@ if(!$resultado){
 </head>
 <body>
     <h2>Selecione um novo arquivo de Imagem</h2>
-    <form enctype="multipart/form-date" action="upload.PHP" METHOD="POST">
+    <form enctype="multipart/form-data" action="upload.PHP" METHOD="POST">
         <input type="hidden" name="MAX_FILE_SIZE" value="999999999">
         <input type="text" name="evento" placeholder="Nome do Evento">
         <input type="text" name="descricao" placeholder="Descrição">
-        <input type="file" value="imagem">
-        <input type="submit" name="Salvar">
+        <input name="imagem" type="file" />
+        <input type="submit" name="Salvar"/>
     </from>
     <br>
     <table border="1">
