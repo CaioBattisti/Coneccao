@@ -33,6 +33,6 @@ if(!empty($imagem) && $tamanho > 0) {
         die("Erro ao inserir no banco: " . mysqli_error($conexao));
     }
 }else{
-    echo "Erro Nenhuma Imagem Foi enviada";
+    echo "Erro: Nenhuma Imagem Foi enviada";
 }
 ?>
