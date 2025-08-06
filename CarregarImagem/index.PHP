@@ -24,7 +24,7 @@ if(!$resultado){
         <input type="hidden" name="MAX_FILE_SIZE" value="999999999">
         <input type="text" name="evento" placeholder="Nome do Evento">
         <input type="text" name="descricao" placeholder="Descrição">
-        <input type="file" value="image">
+        <input type="file" value="imagem">
         <input type="submit" name="Salvar">
     </from>
     <br>
