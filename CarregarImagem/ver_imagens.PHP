@@ -19,16 +19,16 @@ $resultado = $stmt->get_result();
 
 // Verificar se a imagem existe no banco de dados
 if($resultado->num_rows > 0 ){
-$imagem = $resultado->fetch_object();
+    $imagem = $resultado->fetch_object();
 
-//Define o tipo correto da imagem(fallback para JPEG caso esteja vazio)
-$tipoImagem = !empty($imagem->tipo_imagem)? $imagem->tipo_imagem : "image/jpeg";
-header("content-type:".$tipoImagem);
+    //Define o tipo correto da imagem(fallback para JPEG caso esteja vazio)
+    $tipoImagem = !empty($imagem->tipo_imagem)? $imagem->tipo_imagem : "image/jpeg";
+    header("content-type:".$tipoImagem);
 
-// Exibe a imagem armazenada no banco de dados
-    echo $imagem->imagem;
-} else {
-    echo "Imagem não encontrada!";
+    // Exibe a imagem armazenada no banco de dados
+        echo $imagem->imagem;
+    } else {
+        echo "Imagem não encontrada!";
 }
 
 // Fecha a consulta
