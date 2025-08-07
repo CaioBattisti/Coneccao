@@ -43,6 +43,39 @@ $password = '';
 try{
     // Conexão com o banco de dados usando PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    if($_SERVER['REQUEST_METHOD'] =='POST' && isset($_FILES['foto'])){
+        if($_FILES['foto']['error'] == 0){
+            $nome = $_POST['nome'];
+            $telefone = $_POST['telefone'];
+            $nomeFoto = $_FILES['foto']['name']; // Pega o nome original do arquivo
+            $tipoFoto = $_FILES['foto']['type']; // pega o tipo mime da imagem
+
+            // Redimensiona a imagem
+            // O código abaixo cuja variavel tmp_name e o caminho temporário do arquivo
+            $foto = redimensionarImagem($_FILES['foto']['tmp_name'], 300, 400);
+            
+            // Insere no banco de dados usando sql prepared
+            $sql = "INSERT INTO funcionarios (Nome, telefone, nome_foto, tipo_foto, foto) 
+                    VALUES (:nome, :telefone, :nome_foto, :tipo_foto, :foto)";
+            $stmt = $pdo->prepare($sql); // Responsavel por preparear a query para evitar ataque sql injection
+            $stmt->bindParam(':nome', $nome); // Liga os parametos as variaveis
+            $stmt->bindParam(':telefone', $telefone); // Liga os parametos as variaveis
+            $stmt->bindParam(':nome_foto', $nomeFoto); // Liga os parametos as variaveis
+            $stmt->bindParam(':tipo_foto', $tipoFoto); // Liga os parametos as variaveis
+            $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB); // Liga os parametos as variaveis
+
+            
+
+            
+            
+        }
+
+
+
+    }
+
 }
 
 
