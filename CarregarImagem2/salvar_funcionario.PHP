@@ -35,7 +35,7 @@ function redimensionarImagem($imagem, $largura, $altura){
     return $dadosImagem;
 }
 // configuração do banco de dados
-$host 'localhost';
+$host = 'localhost';
 $dbname = 'armazena_imagem';
 $username = 'root';
 $password = '';
