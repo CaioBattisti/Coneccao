@@ -9,10 +9,10 @@ require_once 'conecta.PHP';
 $id_imagem = isset($_GET['id'])? intval($_GET['id']) : 0;
 
 // Cria a consulta para buscar a imagem no banco de dados
-$querySelecionaPorCodigo = "SELECT imagem, tipo_imagem, FROM tabela_imagens WHERE codigo = ?";
+$querySelecionaPorCodigo = "SELECT imagem, tipo_imagem FROM tabela_imagens WHERE codigo = ?";
 
 // Cria a segurança utilizando prepared statement para maior segurança
-$tmt = $conexao->prepare($querySelecionaPorCodigo);
+$stmt = $conexao->prepare($querySelecionaPorCodigo);
 $stmt->bind_param("i", $id_imagem);
 $stmt->execute();
 $resultado = $stmt->get_result();
