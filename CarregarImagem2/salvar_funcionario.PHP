@@ -64,24 +64,32 @@ try{
             $stmt->bindParam(':telefone', $telefone); // Liga os parametos as variaveis
             $stmt->bindParam(':nome_foto', $nomeFoto); // Liga os parametos as variaveis
             $stmt->bindParam(':tipo_foto', $tipoFoto); // Liga os parametos as variaveis
-            $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB); // Liga os parametos as variaveis
+            $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB); // LOB = Large Object, usado para Dados binarios para imagem
 
-            
-
-            
-            
+            if($stmt->execute()){
+                echo "Funcioanrio Cadastrado com sucesso!";
+            }else{
+                echo "Erro ao Cadastrar Funcionario";
+            }
+        }else{
+            echo "Erro ao fazer o upload da foto! Código: ".$_FILES['foto']['error'];
         }
-
-
-
     }
-
+} catch(PDOException $e){
+    echo "Erro: ".$e->getMessage(); // Mostra o erro se houver
 }
-
-
-
-
-
-
-
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Imagens</title>
+</head>
+<body>
+    <h1>Lista de Imagens:</h1>
+
+    <a href="consulta_funcionario.PHP">Listar Funcionarios</a>
+</body>
+</html>
