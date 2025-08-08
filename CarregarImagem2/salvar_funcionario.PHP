@@ -67,7 +67,7 @@ try{
             $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB); // LOB = Large Object, usado para Dados binarios para imagem
 
             if($stmt->execute()){
-                echo "Funcioanrio Cadastrado com sucesso!";
+                echo "Funcionario Cadastrado com sucesso!";
             }else{
                 echo "Erro ao Cadastrar Funcionario";
             }
