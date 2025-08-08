@@ -12,7 +12,7 @@ try{
 
     // Recupera todos os funcionários do banco de dados
     $sql = "SELECT id,nome FROM funcionarios";
-    $stmt = $pdo->prepare(sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $funcionarios = $stmt->fetchALL(PDO::FETCH_ASSOC); // Busca todos os resultados como uma matriz associativa
 
@@ -41,7 +41,7 @@ try{
     <title>Consulta de Funcionarios</title>
 </head>
 <body>
-    <h1>Consulta de Funcionarios</h1>
+    <h1>Consulta de Funcionarios:</h1>
 
     <ul>
         <?php foreach($funcionarios as $funcionario):?>
@@ -58,6 +58,6 @@ try{
             </li>
         <?php endforeach;?>
     </ul>
-    
+
 </body>
 </html>
