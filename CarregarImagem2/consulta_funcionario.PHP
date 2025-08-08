@@ -38,9 +38,26 @@ try{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Consulta de Funcionarios</title>
 </head>
 <body>
+    <h1>Consulta de Funcionarios</h1>
+
+    <ul>
+        <?php foreach($funcionarios as $funcionario):?>
+            <li>
+            <!-- Código abaixo cria link para visualizar detalhes do funcionario -->
+                <a href="visualizar_funcionario.PHP?id=<?php$funcionario['id']?>">
+                    <?=htmlspecialchars($funcionario['nome'])?>
+                </a>
+            <!-- Formulário para excluir o funcionário -->
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="excluir_id" value="<?=$funcionario['id']?>">
+                    <button type="submit">Excluir</button>
+                </form>
+            </li>
+        <?php endforeach;?>
+    </ul>
     
 </body>
 </html>
