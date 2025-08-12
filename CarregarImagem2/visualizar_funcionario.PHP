@@ -36,14 +36,14 @@ try{
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Visualizar Funcionario</title>
+        <title>Visualizar Funcionario:</title>
     </head>
     <body>
         <h1>Dados dos Funcioanrios:</h1>
         <p>Nome: <?=htmlspecialchars($funcionario['nome'])?></p>
         <p>Telefone: <?=htmlspecialchars($funcionario['telefone'])?></p>
         <p>Foto:</p>
-        <img src="data:<?=$funcionario['tipo_foto']?>;base64,<?=base+encode($funcionario['foto'])?>" alt="Foto do funcionario" >
+        <img src="data:<?=$funcionario['tipo_foto']?>;base64,<?=base+encode($funcionario['foto'])?>" alt="Foto do Funcionario" >
 
         <form method="POST">
             <input type="hidden" name="excluir_id" value="<?=$id?>">
