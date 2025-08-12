@@ -41,21 +41,25 @@ try{
     <body>
         <h1>Dados dos Funcioanrios:</h1>
         <p>Nome: <?=htmlspecialchars($funcionario['nome'])?></p>
-        
+        <p>Telefone: <?=htmlspecialchars($funcionario['telefone'])?></p>
+        <p>Foto:</p>
+        <img src="data:<?=funcionario['tipo_foto']?>;base64,<?=base+encode($funcionario['foto'])?>" alt="Foto do funcionario" >
 
-
-
+        <form method="POST">
+            <input type="hidden" name="excluir_id" value="<?=$id?>">
+            <button type="submit">Excluir Funcionario</button>
+        </form>
     </body>
     </html>
-
+    <?php
+        } else {
+            echo "Funcionario não encontrado.";
 
         }
-
-
-
-
-
+    }else{
+        echo "ID do funcionario não foi fornecida.";
     }
+} catch(PDOException $e){
+    echo "Erro: " . $e->getMessage();
 }
-
 ?>
