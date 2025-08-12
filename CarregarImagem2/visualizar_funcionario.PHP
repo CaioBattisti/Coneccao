@@ -24,7 +24,7 @@ try{
             if($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['excluir_id'])){
                 $excluir_id = $_POST['excluir_id'];
                 $sql_excluir = "DELETE FROM funcionarios WHERE id = :id";
-                $stmt_excluir = $pod->prepare($sql_excluir);
+                $stmt_excluir = $pdo->prepare($sql_excluir);
                 $stmt_excluir->bindParam(':id', $excluir_id, PDO::PARAM_INT);
                 $stmt_excluir->execute();
                 header("Location: consulta_funcionario.PHP");
@@ -39,11 +39,11 @@ try{
         <title>Visualizar Funcionario:</title>
     </head>
     <body>
-        <h1>Dados dos Funcioanrios:</h1>
+        <h1>Dados dos Funcionarios:</h1>
         <p>Nome: <?=htmlspecialchars($funcionario['nome'])?></p>
         <p>Telefone: <?=htmlspecialchars($funcionario['telefone'])?></p>
         <p>Foto:</p>
-        <img src="data:<?=$funcionario['tipo_foto']?>;base64,<?=base+encode($funcionario['foto'])?>" alt="Foto do Funcionario" >
+        <img src="data:<?=$funcionario['tipo_foto']?>;base64,<?=base64_encode($funcionario['foto'])?>" alt="Foto do Funcionario" >
 
         <form method="POST">
             <input type="hidden" name="excluir_id" value="<?=$id?>">

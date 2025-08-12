@@ -14,7 +14,7 @@ try{
     $sql = "SELECT id,nome FROM funcionarios";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $funcionarios = $stmt->fetchALL(PDO::FETCH_ASSOC); // Busca todos os resultados como uma matriz associativa
+    $funcionarios = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
     // Verifica se foi solicitado a exclusão de um funcionário
     if(($_SERVER["REQUEST_METHOD"] == 'POST') && isset($_POST['excluir_id'])){
@@ -46,12 +46,10 @@ try{
     <ul>
         <?php foreach($funcionarios as $funcionario):?>
             <li>
-            <!-- Código abaixo cria link para visualizar detalhes do funcionario -->
-                <a href="visualizar_funcionario.PHP?id=<?php$funcionario['id']?>">
+            <a href="visualizar_funcionario.PHP?id=<?=$funcionario['id']?>">
                     <?=htmlspecialchars($funcionario['nome'])?>
                 </a>
-            <!-- Formulário para excluir o funcionário -->
-                <form method="POST" style="display:inline;">
+            <form method="POST" style="display:inline;">
                     <input type="hidden" name="excluir_id" value="<?=$funcionario['id']?>">
                     <button type="submit">Excluir</button>
                 </form>
